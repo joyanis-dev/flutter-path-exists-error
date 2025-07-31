@@ -13,8 +13,7 @@ Target debug_android_application failed: PathExistsException: Cannot copy file t
 (OS Error: Cannot create a file when that file already exists., errno = 183)
 
 yaml
-نسخ
-تحرير
+
 
 ---
 
@@ -28,10 +27,11 @@ So the build crashes.
 
 ## 🛠️ The Quick Fix
 
-```bash
+
 flutter clean
 flutter pub get
 flutter run
+
 This wipes the build cache and lets Flutter start fresh. Usually solves it right away.
 
 📌 Why this happens
@@ -45,20 +45,19 @@ Windows doesn’t like overwriting some files under certain conditions.
 Make sure your assets are listed only once in pubspec.yaml:
 
 yaml
-نسخ
-تحرير
 flutter:
   assets:
     - assets/background.jpg
 Don't do things like:
 
 yaml
-نسخ
-تحرير
+
+
 flutter:
   assets:
     - assets/
     - assets/background.jpg  # ❌ Duplicate
+    
 💡 Pro Tips to Avoid It Again
 💾 Give image files unique names when replacing them.
 
@@ -67,8 +66,8 @@ flutter:
 🧹 Use .gitignore to exclude these folders:
 
 bash
-نسخ
-تحرير
+
+
 /build
 /.dart_tool
 /.idea
